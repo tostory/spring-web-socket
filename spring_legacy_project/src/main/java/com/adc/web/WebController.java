@@ -1,4 +1,4 @@
-package com.adc.test;
+package com.adc.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class MainController {
+public class WebController {
 
 	@RequestMapping("/main")
 	public String main (HttpServletRequest req, HttpServletResponse res, Model model) {
