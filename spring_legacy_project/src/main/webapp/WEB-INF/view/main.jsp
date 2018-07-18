@@ -5,34 +5,26 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome</title>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
-	<script src="/js/sockjs-client-master/dist/sockjs.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-var sock = new SockJS('<c:url value="/echo"/>');
-
-sock.onmessage = onMessage;
-sock.onclose = onClose;
-
 $(document).ready(function(){
-	$('#transferBtn').on('click', function(){
-		sock.send($('input[name="msg"]').val());
+	$('#setNickName').on('click', function(){
+		$('#form')[0].submit();
 	});
 });
-
-function onMessage(e) {
-	console.log(e)
-	var data = e.data;
-	
-	$('body').append('<h3>' + data + '</h3>');
-}
-function onClose() {
-	console.log('연결 끊킴');
-}
 </script>
 </head> 
 <body>
-	<h2>${message}</h2>
-	<h3><%=session.getId() %></h3>
-	<h3><input type="text" name="msg"/><button id="transferBtn">전송</button></h3>
+	<form id="form" method="post">
+		<h2>Spring Legacy Project - websocket test project</h2>
+		<br/>
+		<h3>${nickName}님 어서 오세요</h3>
+		<h3><input type="text" name="nickName"/><button id="setNickName">닉네임 설정</button></h3>
+	</form>
+	
+	<a href="/chat/1">채팅방 입장</a>
 </body>
 </html>

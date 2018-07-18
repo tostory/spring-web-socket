@@ -28,5 +28,5 @@
 		<websocket:mapping handler="echoHandler" path="/echo"/>
 		<websocket:sockjs/>
 	</websocket:handlers>
-	<bean id="echoHandler" class="com.adc.websocket.EchoHandler"/>
+	<bean id="echoHandler" class="com.adc.websocket.handler.EchoHandler"/>
 </beans>

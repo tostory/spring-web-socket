@@ -1,4 +1,4 @@
-package com.adc.websocket;
+package com.adc.websocket.handler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class EchoHandler extends TextWebSocketHandler {
 		logger.info("{}로 부터  {} 받음", session.getId(), message.getPayload());
 		
 		for (WebSocketSession sess : sessionList) {
-			sess.sendMessage(new TextMessage(session.getId() + " | " + message.getPayload()));
+			sess.sendMessage(new TextMessage(message.getPayload()));
 		}
 	}
 	
