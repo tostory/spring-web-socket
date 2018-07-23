@@ -10,10 +10,15 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- Uncomment and your base-package here:  -->
-	<context:component-scan base-package="com.adc"/>
-
 	<mvc:annotation-driven />
+	
+    <!-- Uncomment and your base-package here:  -->
+	<!-- <context:component-scan base-package="com.adc"/> -->
+	<context:component-scan base-package="com.adc">
+       	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
 	
 	<mvc:resources mapping="/js/**" location="/js/" />
 
@@ -25,8 +30,7 @@
 
 	<!-- web socket -->
 	<websocket:handlers>
-		<websocket:mapping handler="echoHandler" path="/echo"/>
+		<websocket:mapping handler="echoHandler" path="/echo" />
 		<websocket:sockjs/>
 	</websocket:handlers>
-	<bean id="echoHandler" class="com.adc.websocket.handler.EchoHandler"/>
 </beans>
