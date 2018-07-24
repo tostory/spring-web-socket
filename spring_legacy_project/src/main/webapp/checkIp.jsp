@@ -73,6 +73,10 @@
 		<td><%=request.getHeader("X-Forwarded-For")%></td>
 	</tr>
 	<tr>
+		<td>x-forwarded-for</td>
+		<td><%=request.getHeader("x-forwarded-for")%></td>
+	</tr>
+	<tr>
 		<td>Proxy-Client-IP</td>
 		<td><%=request.getHeader("Proxy-Client-IP")%></td>
 	</tr>
