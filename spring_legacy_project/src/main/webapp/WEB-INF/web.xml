@@ -6,6 +6,17 @@
 
     <display-name>spring_legacy_project</display-name>
     
+    <filter>
+        <filter-name>RemoteIpFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.RemoteIpFilter</filter-class>
+      </filter>
+
+      <filter-mapping>
+        <filter-name>RemoteIpFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+      </filter-mapping>
+    
    <!--
 		- Location of the XML file that defines the root application context.
 		- Applied by ContextLoaderListener.
