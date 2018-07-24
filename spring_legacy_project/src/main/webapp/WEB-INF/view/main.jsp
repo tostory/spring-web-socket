@@ -11,6 +11,9 @@
 		
 		<a href="/chat/1">채팅방 입장</a>
 	</section>
+	<section style="text-align:center;">
+		git : <a href="https://github.com/tostory/spring-web-socket.git">https://github.com/tostory/spring-web-socket.git</a>
+	</section>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#setNickName').on('click', function(){
